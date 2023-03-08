@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+   <%- include('../partials/head')  %> 
+   <title><%- title %></title>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header')  %>
+    </header>
+    <% if (isAdmin=="admin") { %> 
+    <main id="main">
+        <section class="sub-page-strip">
+          <div class="container">
+    
+            <div class="d-flex justify-content-between align-items-center">
+              <h2>Adminisztráció</h2>
+              <%- include('../partials/admin_menu')  %>
+
+
+              <ol>
+                <li><a href="/">Home</a></li>
+                <li>Adminisztrációs felület</li>
+  
+              </ol>
+            </div>
+    
+          </div>
+        </section>
+          <%- include('../partials/admin_tables')  %>  
+        </main>
+        <% } %> 
+
+        <% if (isAdmin=="user") { %><div><%- include('../partials/access_denied')  %></div><% } %>
+    <footer>
+        <%- include('../partials/footer')  %>
+    </footer>
+    <script src="/public/js/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+</body>
+</html>
